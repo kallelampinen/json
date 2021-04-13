@@ -16,6 +16,7 @@ btn.addEventListener("click", async () =>{
                 const results = data.results 
                 document.querySelector("#randomImg").innerHTML = " ";
 
+                //loop through the object with a forEach loop
                 results.forEach(i => {
                 const myImages = i.urls.small
                 document.querySelector("#imageGrid").innerHTML += `
@@ -44,6 +45,7 @@ randomBtn.addEventListener("click", async () =>{
     document.querySelector("#imageGrid").innerHTML = " ";
     const data = await myFetch.json()
     const randomImg = data.urls.small
+    //Select the image description
     const descriptionImg = data.alt_description  
     document.querySelector("#randomImg").innerHTML = `
     <img src="${randomImg}">
