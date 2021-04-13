@@ -17,6 +17,7 @@ btn.addEventListener("click", async () =>{
     }
     const data = await myFetch.json()
     const results = data.results 
+    document.querySelector("#randomImg").innerHTML = " ";
 
     results.forEach(i => {
         const myImages = i.urls.small
@@ -28,6 +29,9 @@ btn.addEventListener("click", async () =>{
     catch(error){
 
         console.log(error)
+    } finally{
+
+        document.querySelector("#searchInput").value = " ";
     }
 
 })
@@ -43,10 +47,11 @@ randomBtn.addEventListener("click", async () =>{
 
         throw new Error(myFetch.status)
     }  
+    document.querySelector("#imageGrid").innerHTML = " ";
 
     const data = await myFetch.json()
     console.log(data)
-    const randomImg = data.urls.full
+    const randomImg = data.urls.small
     document.querySelector("#randomImg").innerHTML = `
     <img src="${randomImg}" id="img2" alt="">
     `;
