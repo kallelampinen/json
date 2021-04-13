@@ -12,9 +12,13 @@ body{
     background-color: rgb(0, 0, 0);
 }
 
+p{
+    color:white;
+}
+
 .container{
     width:100%;
-    height:40vh;
+    height:30vh;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -22,15 +26,11 @@ body{
 }
 
 #imageGrid{
-
     display:grid;
     gap: 8px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-
-
 }
-
 .imagecontainer{
     width:100%;
     display:flex;
@@ -38,15 +38,11 @@ body{
     width:100%;
 }
 
-#img{
+img{
     width: 400px;
-    height:400px;
-   
+    height:400px; 
 }
-#img2{
-    width: 400px;
-    height:400px;
-    
+   
 }
 
 h1{
@@ -69,9 +65,23 @@ input{
     width:350px;
     text-align: left, 70%;
 }
+
+#randomImg{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#desc{
+    padding-top:7px;
+    font-size: 20px;
+}
 button{
     cursor: pointer;
     height:40px;
+    background-color: white;
+    font-weight: 700;
 }
 #myBtn{
     width:50px;
