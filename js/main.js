@@ -1,5 +1,5 @@
 // I did choose to use Unsplash API for the VG . https://unsplash.com/developers
-// (Unsplash have 50 requestes/hour limit)
+// (FYI Unsplash have 50 requestes/hour limit)
 
 //global variables
 const key = "C3esLyVT-9VL0nu9YTFTNSRD1EYXCa1UDPI_Fus3g8M";
@@ -39,7 +39,6 @@ randomBtn.addEventListener("click", async () =>{
     try
     {
         const myFetch = await fetch(`https://api.unsplash.com/photos/random?&client_id=${key}`)
-        console.log(myFetch)
         if(!myFetch.ok){
             throw new Error(myFetch.status)
     }  
@@ -61,9 +60,7 @@ randomBtn.addEventListener("click", async () =>{
         //Finally replace the image descriptions that have "null" as a description with the string "no caption".
         let text = document.querySelector("#desc"); 
         if(text.innerHTML === "\"null\""){
-
             text.innerHTML = "No caption";
-            console.log("check");
         }
     }
 })
