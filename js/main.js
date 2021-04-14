@@ -1,10 +1,11 @@
 // I did choose to use Unsplash API for the VG . https://unsplash.com/developers
+// (Unsplash have 50 requestes/hour limit)
 
 //global variables
 const key = "C3esLyVT-9VL0nu9YTFTNSRD1EYXCa1UDPI_Fus3g8M";
 const btn = document.querySelector("#myBtn");
 const randomBtn = document.querySelector("#random")
-// fetch images with search throug input field. I did choose to not have a the static width and height in each grid cell to give the site a more dynamic feel and also to let each picture have the original size.
+// fetch images with search throug input field. 
 btn.addEventListener("click", async () =>{
         const userInput = document.querySelector("#searchInput").value;
         try
@@ -37,24 +38,32 @@ btn.addEventListener("click", async () =>{
 randomBtn.addEventListener("click", async () =>{
     try
     {
-    const myFetch = await fetch(`https://api.unsplash.com/photos/random?&client_id=${key}`)
-    console.log(myFetch)
-    if(!myFetch.ok){
-        throw new Error(myFetch.status)
+        const myFetch = await fetch(`https://api.unsplash.com/photos/random?&client_id=${key}`)
+        console.log(myFetch)
+        if(!myFetch.ok){
+            throw new Error(myFetch.status)
     }  
-    document.querySelector("#imageGrid").innerHTML = " ";
-    const data = await myFetch.json()
-    const randomImg = data.urls.small
-    //Select the image description
-    const descriptionImg = data.alt_description  
-    document.querySelector("#randomImg").innerHTML = `
-    <img src="${randomImg}">
-    <p id="desc">"${descriptionImg}"</p>
-    `;
-    console.log(descriptionImg)
+        document.querySelector("#imageGrid").innerHTML = " ";
+        const data = await myFetch.json()
+        const randomImg = data.urls.small
+        //Select the image description
+        let descriptionImg = data.alt_description  
+        let text = document.querySelector("#randomImg");
+        text.innerHTML = `
+        <img src="${randomImg}">
+        <p id="desc">"${descriptionImg}"</p>
+        `;
     }
     catch(error){
 
         console.log(error)
-    } 
+    } finally{
+        //Finally replace the image descriptions that have "null" as a description with the string "no caption".
+        let text = document.querySelector("#desc"); 
+        if(text.innerHTML === "\"null\""){
+
+            text.innerHTML = "No caption";
+            console.log("check");
+        }
+    }
 })
