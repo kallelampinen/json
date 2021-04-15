@@ -3,8 +3,7 @@
 
 //global variables
 
-const key = config.key;
-
+const key = "C3esLyVT-9VL0nu9YTFTNSRD1EYXCa1UDPI_Fus3g8M"
 const btn = document.querySelector("#myBtn");
 const randomBtn = document.querySelector("#random")
 // fetch images with search throug input field. 
