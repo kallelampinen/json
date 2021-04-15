@@ -49,7 +49,7 @@ randomBtn.addEventListener("click", async () =>{
         let descriptionImg = data.alt_description  
         let text = document.querySelector("#randomImg");
         text.innerHTML = `
-        <img src="${randomImg}">
+        <img id="img2" src="${randomImg}" >
         <p id="desc">"${descriptionImg}"</p>
         `;
     }
