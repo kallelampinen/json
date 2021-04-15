@@ -91,23 +91,10 @@ button {
 
 /* Media Queries */
 @media screen and (max-width: 1450px) {
-  #imageGrid {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-  }
-  #img1 {
-    width: 300px;
-    height: 300px;
-  }
-
   #img2 {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     object-fit: cover;
-  }
-
-  #container {
-    margin-bottom: 40px;
   }
 }
 
